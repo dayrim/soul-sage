@@ -1,0 +1,19 @@
+{
+  "name": "whale-test-turbo",
+  "private": true,
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "test": "turbo test"
+  },
+  "devDependencies": {
+    "turbo": "latest"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "packageManager": "yarn@1.22.21",
+  "workspaces": [
+    "apps/*"
+  ]
+}
