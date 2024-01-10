@@ -50,7 +50,7 @@ jobs:
           context: .
           file: apps/backend/Dockerfile
           push: true
-          tags: dayrim/whale-backend:latest
+          tags: dayrim/soulsage-backend:latest
 
   build-and-push-web:
     name: Build and Push Web Docker Image
@@ -79,7 +79,7 @@ jobs:
           context: .
           file: apps/web/Dockerfile
           push: true
-          tags: dayrim/whale-web:latest
+          tags: dayrim/soulsage-web:latest
 
   deploy:
     name: Deploy with Docker Compose
@@ -110,7 +110,7 @@ jobs:
           key: ${{ secrets.REMOTE_SSH_KEY }}
           passphrase: ${{ secrets.REMOTE_SSH_PASSPHRASE }}
           source: "./docker-compose.yml,./.env"
-          target: "~/whale-test"
+          target: "~/soulsage"
 
       - name: Deploy using Docker Compose
         uses: appleboy/ssh-action@master
@@ -120,7 +120,7 @@ jobs:
           key: ${{ secrets.REMOTE_SSH_KEY }}
           passphrase: ${{ secrets.REMOTE_SSH_PASSPHRASE }}
           script: |
-            cd ~/whale-test
+            cd ~/soulsage
             docker-compose pull
             docker-compose up -d
             docker-compose ps
