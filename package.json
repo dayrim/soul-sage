@@ -1,5 +1,5 @@
 {
-  "name": "whale-test-turbo",
+  "name": "soul-sage-bot",
   "private": true,
   "scripts": {
     "build": "turbo build",
