@@ -35,7 +35,6 @@ export class TelegramAppApiService implements OnModuleInit {
 
     const sessionToken = this.client.session.save() as unknown as string;
     await this.saveSession('defaultSession', sessionToken);
-
   }
   async saveSession(sessionId: string, sessionData: string) {
     let session = await this.sessionRepository.findOneBy({ id: sessionId });

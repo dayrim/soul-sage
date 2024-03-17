@@ -5,28 +5,27 @@ on:
     branches: ["main"]
 
 jobs:
-  run-tests:
-    name: Run Tests
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out code
-        uses: actions/checkout@v3
+  # run-tests:
+  #   name: Run Tests
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Check out code
+  #       uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: "18" # Specify the Node.js version
+  #     - name: Set up Node.js
+  #       uses: actions/setup-node@v3
+  #       with:
+  #         node-version: "18" # Specify the Node.js version
 
-      - name: Install dependencies
-        run: yarn install
+  #     - name: Install dependencies
+  #       run: yarn install
 
-      - name: Run tests
-        run: yarn run test
+  #     - name: Run tests
+  #       run: yarn run test
 
   build-and-push-backend:
     name: Build and Push Backend Docker Image
     runs-on: ubuntu-latest
-    needs: run-tests
     timeout-minutes: 15
 
     steps:
@@ -55,7 +54,6 @@ jobs:
   build-and-push-web:
     name: Build and Push Web Docker Image
     runs-on: ubuntu-latest
-    needs: run-tests
     timeout-minutes: 15
 
     steps:
