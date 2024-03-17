@@ -4,11 +4,11 @@ import { Injectable } from '@nestjs/common';
 export class SessionStorageService {
   private sessionData: Record<string, string> = {};
 
-  saveSession(userId: string, session: string): void {
-    this.sessionData[userId] = session;
+  saveSession(sessionId: string, session: string): void {
+    this.sessionData[sessionId] = session;
   }
 
-  getSession(userId: string): string | null {
-    return this.sessionData[userId] || null;
+  getSession(sessionId: string): string | null {
+    return this.sessionData[sessionId] || null;
   }
 }

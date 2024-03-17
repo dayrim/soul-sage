@@ -1,31 +1,34 @@
-import { Entity, Column, PrimaryColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, PrimaryColumn, CreateDateColumn } from 'typeorm';
 
-@Entity()
+@Entity('TelegramUser')
 export class TelegramUser {
   @PrimaryColumn('bigint')
-  id: string;
+  id: number; // Renamed from id to telegramUserId
 
   @Column({ default: false })
-  is_admin: boolean;
+  isAdmin: boolean; // Converted to camelCase
 
   @Column()
-  is_bot: boolean;
+  isBot: boolean; // Converted to camelCase
 
   @Column()
-  first_name: string;
+  firstName: string; // Converted to camelCase
 
   @Column({ nullable: true })
-  last_name?: string;
+  lastName?: string; // Converted to camelCase
 
   @Column({ nullable: true })
-  username?: string;
+  userName?: string; // Remains the same as it's already in camelCase
 
   @Column({ nullable: true })
-  language_code?: string;
+  languageCode?: string; // Converted to camelCase
 
   @Column({ nullable: true, default: false })
-  is_premium?: boolean;
+  isPremium?: boolean; // Converted to camelCase
 
   @Column({ nullable: true, default: false })
-  added_to_attachment_menu?: boolean;
+  addedToAttachmentMenu?: boolean; // Converted to camelCase
+
+  @CreateDateColumn() // This will automatically set the current date and time
+  createDate: Date;
 }
