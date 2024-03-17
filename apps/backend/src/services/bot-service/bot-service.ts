@@ -88,7 +88,6 @@ export class BotService {
         // Handle sender chat (if present)
         let senderChat = null;
         if (msg.sender_chat) {
-          this.logger.debug(`Looking up or creating sender chat for ID: ${msg.sender_chat.id}`);
           senderChat = await this.chatRepository.findOrCreate(
             { id: msg.sender_chat.id },
             {

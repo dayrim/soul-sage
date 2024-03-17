@@ -15,6 +15,7 @@ services:
       - TELEGRAM_APP_ID=${TELEGRAM_APP_ID}
       - TELEGRAM_APP_ID_HASH=${TELEGRAM_APP_ID_HASH}
       - WEB_URL=${WEB_URL}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
   web:
     image: dayrim/soulsage-web:latest
     ports:
